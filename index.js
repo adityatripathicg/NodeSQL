@@ -1,4 +1,12 @@
 const { faker } = require('@faker-js/faker');
+const mysql = require('mysql2');
+
+
+const connnection = mysql.createConnection({
+  host : 'localhost',
+  user:'root',
+  database:'test'
+})
 
 let GetRandomUser = () => {
   return {
