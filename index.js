@@ -5,8 +5,18 @@ const mysql = require('mysql2');
 const connnection = mysql.createConnection({
   host : 'localhost',
   user:'root',
-  database:'test'
-})
+  database:'D_APP',
+  password : '1234'
+});
+//sql injected
+connnection.query("SHOW TABLES", (err,res)=>{
+  try {
+    if (err) throw err;
+    console.log(res);
+  } catch (error) {
+    console.log(err);
+  }
+});
 
 let GetRandomUser = () => {
   return {
@@ -19,4 +29,4 @@ let GetRandomUser = () => {
     //registeredAt: faker.date.past(),
   };
 }
-console.log(GetRandomUser());
+//console.log(GetRandomUser());
