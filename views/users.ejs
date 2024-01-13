@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data</title>
+    <style>
+        tr th{
+            border: 2px solid black;
+        }
+        tr td{
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <form action="/add">
+        <button>Add New User</button>
+    </form>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>E-mail</th>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>@cg</td>
+            <td>cg@gamil.com</td>
+        </tr>
+        <% for(data of datas){ %>
+            <tr>
+                <td><%= data.id %></td>
+                <td><%= data.username %></td>
+                <td><%= data.email %></td>
+                <td>
+                    <form action="/user/<%= data.id %>/edit" method="GET">
+                        <button>Edit Username</button>
+                    </form>
+                    <form action="/user/<%= data.id %>/delete" method="GET">
+                        <button>Delete</button>
+                    </form>
+                </td>
+            </tr>
+        <% }; %>
+    </table>
+    
+</body>
+</html>
